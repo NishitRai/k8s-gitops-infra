@@ -3,9 +3,4 @@ kind: Kustomization
 
 resources:
   - ../../base
-
-# Append local network settings onto the base installation
-images:
-  - name: staging-configs
-resources:
   - ip-pool-patch.yaml
