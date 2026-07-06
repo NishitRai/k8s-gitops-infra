@@ -4,3 +4,7 @@ kind: Kustomization
 resources:
   - ../../base
   - ip-pool-patch.yaml
+
+# Argo CD to bypass the strict sync requirements for any broken upstream CRD metadata
+commonAnnotations:
+  argocd.argoproj.io/compare-options: IgnoreExtraneous
