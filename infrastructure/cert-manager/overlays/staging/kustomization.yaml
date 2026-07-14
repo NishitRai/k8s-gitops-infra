@@ -13,8 +13,23 @@ helmCharts:
     namespace: cert-manager
     valuesInline:
       installCRDs: true
-  - name: cert-manager-webhook-desec
-    repo: https://github.io
-    version: v0.1.5 
-    releaseName: cert-manager-webhook-desec
+
+  - name: cert-manager-desec-webhook
+    repo: oci://ghcr.io/pr0ton11/helm
+    version: 0.1.2 
+    releaseName: cert-manager-desec-webhook
     namespace: cert-manager
+
+patches:
+  # Use a patch to force the deSEC Webhook to wave 1. 
+  - target:
+      kind: Deployment
+      name: cert-manager-desec-webhook
+    patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: cert-manager-desec-webhook
+        annotations:
+          argocd.argoproj.io/sync-wave: "1"
+
