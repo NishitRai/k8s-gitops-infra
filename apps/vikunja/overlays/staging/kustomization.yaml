@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: vikunja
 
 resources:
+  - ../../base
   - ingress.yaml
 
 helmCharts:
