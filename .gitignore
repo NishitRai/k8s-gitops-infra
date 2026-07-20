@@ -3,7 +3,10 @@
 **/.charts/
 *.tgz
 
-# Ignore local secret tokens or values files you test with
+# Ignore local secret tokens or values files used to test with
 .env
 values-local.yaml
 *-local.yaml
+
+# Ignore test manifest files 
+test-*.yaml 
