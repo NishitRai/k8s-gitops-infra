@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vikunja
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - vikunja.staging.techops.dedyn.io 
+      secretName: vikunja-staging-tls
+  rules:
+    - host: vikunja.staging.techops.dedyn.io 
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vikunja
+                port:
+                  number: 3456

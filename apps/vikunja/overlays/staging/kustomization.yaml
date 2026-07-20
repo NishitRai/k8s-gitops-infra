@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: vikunja
+
+resources:
+  - ingress.yaml
+
+helmCharts:
+  - name: vikunja
+    repo: oci://ghcr.io/go-vikunja/helm-chart
+    version: 1.0.0
+    releaseName: vikunja
+    namespace: vikunja
+    valuesInline:
+      vikunja:
+        persistence:
+          data:
+            enabled: true
+            size: 1Gi
