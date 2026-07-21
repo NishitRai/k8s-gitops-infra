@@ -1,0 +1,10 @@
+apiVersion: v2
+name: openebs-staging
+description: Staging Umbrella Chart for OpenEBS
+type: application
+version: 1.0.0
+
+dependencies:
+  - name: openebs
+    version: 4.5.1
+    repository: https://openebs.github.io/openebs

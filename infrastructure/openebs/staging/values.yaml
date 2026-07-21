@@ -1,0 +1,21 @@
+openebs:
+  engines:
+    replicated:
+      mayastor:
+        enabled: false
+  localpv-provisioner:
+    enabled: true
+    hostpathClass:
+      enabled: true
+      isDefaultClass: "true"
+      basePath: "/var/openebs/staging/local"
+  alloy:
+    enabled: false
+  loki:
+    enabled: false
+  minio:
+    enabled: false
+  mayastor:
+    obs:
+      enabled: false
+
